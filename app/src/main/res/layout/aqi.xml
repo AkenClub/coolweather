@@ -14,60 +14,66 @@
         android:text="空气质量"
         android:textColor="#fff"
         android:textSize="20sp"/>
+
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp">
-        <RelativeLayout
+        //左半部分
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
+            <RelativeLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true">
+                android:layout_gravity="center">
                 <TextView
-                    android:id="@+id/aqi_text"
+                    android:id="@+id/air_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:textColor="#fff"
                     android:textSize="40sp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="AQI指数"
-                    android:textColor="#fff"/>
-            </LinearLayout>
+            </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="空气质量指数"
+                android:textColor="#fff"/>
+        </LinearLayout>
 
-        </RelativeLayout>
-
-        <RelativeLayout
+        //右半部分
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1">
-            <LinearLayout
-                android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_centerInParent="true">
+                android:layout_gravity="center">
                 <TextView
-                    android:id="@+id/pm2.5_text"
+                    android:id="@+id/pm25_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textColor="#FFF"
+                    android:textColor="#fff"
                     android:textSize="40sp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="PM2.5指数"
-                    android:textColor="#fff"/>
-            </LinearLayout>
-        </RelativeLayout>
+            </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="空气质量指数"
+                android:textColor="#fff"/>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

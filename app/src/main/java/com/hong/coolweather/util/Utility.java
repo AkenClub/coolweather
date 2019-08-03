@@ -1,12 +1,12 @@
 package com.hong.coolweather.util;
 
 import android.text.TextUtils;
-
 import com.google.gson.Gson;
 import com.hong.coolweather.db.City;
 import com.hong.coolweather.db.County;
 import com.hong.coolweather.db.Province;
-import com.hong.coolweather.gson.Weather;
+import com.hong.coolweather.gson.AQI;
+import com.hong.coolweather.gson.WeatherBean;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -84,15 +84,24 @@ public class Utility {
     /**
      * 将返回的JSON数据解析成Weather实体类
      */
-    public static Weather handleWeatherResponse(String response) {
+    public static WeatherBean handleWeatherResponse(String response) {
         try {
             JSONObject object = new JSONObject(response);
-            JSONArray jsonArray = object.getJSONArray("HeWeather");
+            JSONArray jsonArray = object.getJSONArray("HeWeather6");
             String weatherContent = jsonArray.getJSONObject(0).toString();
-            return new Gson().fromJson(weatherContent, Weather.class);
+            return new Gson().fromJson(weatherContent, WeatherBean.class);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return null;
+    }
+
+    /**
+     * 解析AQI空气质量
+     * @param responseText
+     * @return
+     */
+    public static AQI handleAQIResponse(String responseText) {
+            return new Gson().fromJson(responseText, AQI.class);
     }
 }
