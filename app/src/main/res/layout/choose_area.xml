@@ -6,6 +6,7 @@
     android:background="#FFF">
 
     <RelativeLayout
+        android:id="@+id/area_bar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary">
@@ -18,8 +19,8 @@
             android:textSize="20sp"/>
         <Button
             android:id="@+id/back_botton"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginLeft="10dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
