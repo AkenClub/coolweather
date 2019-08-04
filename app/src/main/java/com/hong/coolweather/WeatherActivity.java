@@ -1,5 +1,6 @@
 package com.hong.coolweather;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.hong.coolweather.gson.AQI;
 import com.hong.coolweather.gson.WeatherBean;
+import com.hong.coolweather.service.AutoUpdateService;
 import com.hong.coolweather.util.HttpUtil;
 import com.hong.coolweather.util.Utility;
 import java.io.IOException;
@@ -121,6 +123,8 @@ public class WeatherActivity extends AppCompatActivity {
                 runOnUiThread(() -> Glide.with(WeatherActivity.this).load(bingPic).into(bingPicImg));
             }
         });
+        Intent intent = new Intent(this, AutoUpdateService.class);
+        startService(intent);
     }
 
     /**
@@ -165,7 +169,7 @@ public class WeatherActivity extends AppCompatActivity {
     /**
      * 请求城市空气质量信息
      */
-    private void requestAQI() {
+    public void requestAQI() {
         String AQIUrl = "https://www.tianqiapi.com/api/?appid=81279413&appsecret=X81WVa15&version=v10&cityid=" +
                  weather.getBasic().getCid();
         HttpUtil.sendOkhttpRequest(AQIUrl, new Callback() {
